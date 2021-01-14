@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Error</title>
+    <style>
+
+        body {
+            background-color: darkorange;
+        }
+
+        .containering {
+            background-color: #FF6600;
+            color: white;
+            max-width: 540px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 20px;
+            box-shadow: 0 5px 50px rgba(0,0,0,0.4);
+            text-align: center;
+            margin-top: 0;
+            top: 80px;
+            border-radius: 5px;
+        }
+
+        .containering2 {
+            background-color: goldenrod;
+            border: 5px solid #FF6600;
+        }
+
+        #BackBtn_1 {
+            color: White;
+            font-family: Calibri;
+            font-size: 9px;
+            background-color: black;
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 80px;
+            height: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-left: 40px;
+        }
+
+
+        #errorBox {
+            text-align: center;
+            width: 420px;
+            margin: 10px auto;
+            font-size: 16px;
+            font-family: Calibri;
+            color: Red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="containering">
+        <div class="containering2">
+
+            <label id="errorBox">Error!<br></label>Invalid Username or Password<br>
+            <br>
+            <div>
+                <input type="button" id="BackBtn_1" value="Back to Login" onclick="location.href='@Url.Action( "Login", "Login" )'">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

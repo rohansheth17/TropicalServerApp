@@ -1,0 +1,226 @@
+﻿
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - TropicalServer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <style>
+
+        #bodyLogin {
+            margin: 10px auto;
+            padding: 0;
+            width: 980px;
+            height: 750px;
+            background-color: white;
+        }
+
+        .containering {
+            background-color: #FF6600;
+            color: white;
+            max-width: 540px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 20px;
+            box-shadow: 0 5px 50px rgba(0,0,0,0.4);
+            text-align: center;
+            margin-top: 0;
+            top: 80px;
+            border-radius: 5px;
+        }
+
+        .containering2 {
+            background-color: goldenrod;
+            border: 5px solid #FF6600;
+        }
+
+        #Loginlbl {
+            font-family: Calibri;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .form-group {
+            color: white;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: .8em;
+            line-height: 2em;
+        }
+
+        #LoginBtn_1 {
+            color: White;
+            font-family: Calibri;
+            font-size: 9px;
+            background-color: black;
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 80px;
+            font-weight: bold;
+            text-align: center;
+            margin-left: 60px;
+        }
+
+        #useridlbl {
+            color: White;
+            font-family: Calibri;
+            font-size: 8pt;
+            margin-left: 35px;
+        }
+
+        #passwordlbl {
+            color: White;
+            font-family: Calibri;
+            font-size: 8pt;
+            margin-left: 20px;
+        }
+
+        #useridtextbox {
+            color: black;
+            width: 250px;
+            margin-top: 30px;
+            margin-left: 24px;
+        }
+
+        #passwordtextbox {
+            color: black;
+            width: 250px;
+            margin-top: 29px;
+            margin-left: 28px;
+        }
+
+
+        #forgotPassword {
+            font-family: Calibri;
+            font-size: 16px;
+            text-decoration: underline;
+            color: #FFFFFF;
+            margin-left: 50px;
+        }
+
+        #forgotUsername {
+            font-family: calibri;
+            font-size: 16px;
+            text-decoration: underline;
+            color: #FFFFFF;
+            margin-right: 50px;
+        }
+    </style>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+@*<body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>*@
+
+<body>
+
+    
+
+	<div class="container">
+
+		<div class="main">
+
+			<div class="imageDisplay">
+				<img height="100" src="@Url.Content("~/Images/Header.jpg")" />
+
+			</div>
+            <div id="bodyLogin">
+                <div class="containering">
+                    <form id="BodyDetail" method="post" action="/Login/LoginVerify">
+
+                        <div class="form-group" id="form1">
+                            <br>
+                            <label id="Loginlbl" style="float: left;margin-left:5px;">Mobile Customer Order Tracking</label><br>
+                        </div>
+                        <div class="containering2">
+                            <div class="form-group" id="form2">
+                                <label id="useridlbl">Login ID:</label>
+                                <input type="text" name="username" id="useridtextbox" required /><br>
+
+                                <label id="passwordlbl">Password:</label>
+                                <input type="password" name="password" id="passwordtextbox" required /><br>
+                                <br><br>
+                                <label for="rememberme">Remember my ID</label>
+                                <input type="checkbox" id="rememberme" name="rememberme">
+                                <!-- <button id="LoginBtn_1">Log In</button>-->
+                                <button id="LoginBtn_1">Log-In</button>
+
+                            </div>
+                        </div>
+                        <div id="forgot">
+                            <label id="forgotUsername"><a href="/Login/ForgotUsername">Forgot Username</a></label>
+                            <label id="forgotPassword"><a href="/Login/ForgotPassword">Forgot Password</a></label>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+				<!--
+		<div id="bodyLogin">
+
+			<div id="BodyDetail">
+
+				<div id="loginBox">
+
+					<label id="Loginlbl">Mobile Customer Order Tracking</label> <br />
+				</div>
+					<label id="useridlbl">Login ID:</label>
+					<input type="text" id="useridtextbox"/><br />
+					<label id="passwordlbl">Password:</label>
+					<input type="text" id="passwordtextbox"/><br />
+					<label>Remember my ID</label>
+					<input type="checkbox" />
+
+			</div>
+		</div>-->
+
+
+		</div>
+
+		
+	</div>
+
+    <script src="~/Scripts/helper.js"></script>
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

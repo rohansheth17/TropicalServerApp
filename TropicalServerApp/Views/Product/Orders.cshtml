@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "Orders";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <style>
+        #bodyLogin {
+            margin: 10px auto;
+            padding: 0;
+            width: 100%;
+            height: 750px;
+            background-color: #CCCCCC;
+        }
+
+
+        #CriteriaBar {
+            background-color: #2C4E81;
+            padding: 9px;
+            margin-top: 5px;
+            height: 40px;
+        }
+
+            #CriteriaBar .Criteria {
+                text-align: center;
+                width: 240px;
+                margin: 0;
+                float: left;
+            }
+
+                #CriteriaBar .Criteria .label {
+                    color: #FFFFFF;
+                }
+
+                #CriteriaBar .Criteria .Input {
+                    width: 100px;
+                }
+
+        #grid {
+            width: 100%;
+            text-align: center;
+            height: 550px;
+            overflow: auto;
+        }
+
+        .gvOrders {
+            margin: 3px auto;
+            width: 99%;
+        }
+
+            .gvOrders th {
+                color: #FFFFFF;
+                background-color: #3B8FA7;
+                border: 2px solid #FFFFFF;
+                border-bottom: 5px solid #FFFFFF;
+                text-align:center;
+            }
+
+            .gvOrders td {
+                border: 2px solid #FFFFFF;
+                padding-left: 10px;
+            }
+
+            .gvOrders .Row {
+                background-color: #FFFFFF;
+            }
+
+            .gvOrders .AltRow {
+                background-color: #CED9DF;
+            }
+    </style>
+</head>
+<body>
+
+    <div id="bodyLogin">
+        <div id="CriteriaBar">
+            
+                <label class="label" for="dropdown1">Order Date:</label>
+                <select id="dropdown1" class="Input">
+                    <option disabled selected value=""></option>
+                    <option value='Today'>Today</option>
+                    <option value='Last 7 Days'>Last 7 Days</option>
+                    <option value='Last 1 Month'>Last 1 Month</option>
+                    <option value='Last 6 Months'>Last 6 Months</option>
+                    </select>
+                <label class="label" for="cname">Customer ID:</label>
+                <input type="text" class="Input" id="cname">
+                <label class="label" for="sname">Customer Name:</label>
+                <input type="text" class="Input" id="sname">
+                <label class="label" for="dropdown2">Sales Manager:</label>
+                <select id="dropdown2" class="Input">
+                    <option disabled selected value=""></option>
+                    <option value='Today'>Today</option>
+                    <option value='Last 7 Days'>Last 7 Days</option>
+                    <option value='Last 1 Month'>Last 1 Month</option>
+                    <option value='Last 6 Months'>Last 6 Months</option>
+                </select>
+           
+
+        </div>
+
+        <div id="grid">
+
+          <!--  <div style="background-color:skyblue;color:yellow;">@ViewBag.count</div>-->
+
+            <table class="gvOrders">
+
+                <tr>
+                    <th>Tracking No</th>
+                    <th>Order Date</th>
+                    <th>Order Customer No</th>
+                    <th>Cust Name</th>
+                    <th>Cust Office Address</th>
+                    <th>Route No</th>
+                    <th>Available Actions</th>
+                </tr>
+                @if (ViewBag.data != null)
+                {
+                    var count = 0;
+                    var data = (List<List<string>>)ViewBag.data;
+                    foreach (var item in data)
+                    {
+                        <tr class="@(count % 2 == 0? "Row" : "AltRow")" id="tr_@item[0]">
+                            <td>@item[1]</td>
+                            <td>@item[2]</td>
+                            <td>@item[3]</td>
+                            <td>@item[4]</td>
+                            <td>@item[5]</td>
+                            <td>@item[6]</td>
+                            <td><a href="" id="view_@item[0]">View </a>&nbsp;<a>Edit </a>&nbsp;<a>Delete</a></td>
+                        </tr>
+                        count++;
+                    }
+                }
+
+
+
+            </table>
+
+
+            </div>
+
+        </div>
+
+
+
+    <script src="~/Scripts/helper.js"></script>
+    </body>
+    </html>
+
+
+
+

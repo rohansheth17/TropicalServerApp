@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "ViewOrders";
+    //Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        #bodyLogin {
+            margin: 10px auto;
+            padding: 0;
+            width: 100%;
+            height: 750px;
+            background-color: #CCCCCC;
+        }
+
+        #grid {
+            width: 100%;
+            text-align: center;
+            height: 550px;
+            overflow: auto;
+        }
+
+        .gvOrders {
+            margin: 3px auto;
+            width: 99%;
+        }
+
+            .gvOrders th {
+                color: #FFFFFF;
+                background-color: #3B8FA7;
+                border: 2px solid #FFFFFF;
+                border-bottom: 5px solid #FFFFFF;
+                text-align: center;
+            }
+
+            .gvOrders td {
+                border: 2px solid #FFFFFF;
+                padding-left: 10px;
+            }
+
+            .gvOrders .Row {
+                background-color: #FFFFFF;
+            }
+
+            .gvOrders .AltRow {
+                background-color: #CED9DF;
+            }
+    </style>
+</head>
+<body>
+    <div id="bodyLogin">
+        <div id="grid">
+            <table class="gvOrders">
+
+                <tr>
+                    <th>OrderGroupNumber</th>
+                    <th>OrderCaseNumbers</th>
+                    <th>OrderItemNumber</th>
+                    <th>OrderPromoNumber</th>
+                    <th>OrderItemQty</th>
+                    <th>ItemUnitPrice</th>
+                    <th>ItemTotalPrice</th>
+                    <th>DeliveryDate</th>
+                    <th>UserID</th>
+                    <th>TabletID</th>
+                    <th>DataSyncDateTime</th>
+                    <th>OrderConfirmFlag</th>
+                    <th>ItemType</th>
+                    <th>PerPoundItemsWeight</th>
+                </tr>
+                @if (ViewBag.data2 != null)
+                {
+                    var count = 0;
+                    var data = (List<List<string>>)ViewBag.data2;
+                    foreach (var item in data)
+                    {
+                        <tr class="@(count % 2 == 0? "Row" : "AltRow")">
+                            <td>@item[0]</td>
+                            <td>@item[1]</td>
+                            <td>@item[2]</td>
+                            <td>@item[3]</td>
+                            <td>@item[4]</td>
+                            <td>@item[5]</td>
+                            <td>@item[6]</td>
+                            <td>@item[7]</td>
+                            <td>@item[8]</td>
+                            <td>@item[9]</td>
+                            <td>@item[10]</td>
+                            <td>@item[11]</td>
+                            <td>@item[12]</td>
+                            <td>@item[13]</td>
+                        </tr>
+                        count++;
+                    }
+                }
+
+            </table>
+
+
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
